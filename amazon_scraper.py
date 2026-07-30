@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import time
 import random
+import sys
 
 # CONFIGURAZIONE
 AMAZON_URL = "https://www.amazon.it/gp/goldbox" 
@@ -45,8 +46,10 @@ if __name__ == "__main__":
     try:
         found_deals = scrape_amazon()
         found_deals.sort(key=lambda x: x['discountPct'], reverse=True)
+        # CORREZIONE QUI: ensure_ascii con underscore
         with open("offerte.json", "w", encoding="utf-8") as f:
-            json.dump(found_deals, f, indent=2, ensure-ascii=False)
+            json.dump(found_deals, f, indent=2, ensure_ascii=False)
         print(f"Successo! {len(found_deals)} offerte salvate.")
     except Exception as e:
         print(f"Errore: {e}")
+        sys.exit(1)
