@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1785432644,
+    "title": "Prodotto in Offerta 15 - Sconto 90%",
+    "category": "Gaming",
+    "oldPrice": 795.71,
+    "newPrice": 79.57,
+    "discountPct": 90,
+    "hasCoupon": true,
+    "couponText": "Coupon -9€",
+    "image": "https://picsum.photos/seed/214/600/600",
+    "asin": "B098885571",
+    "rating": 4.6,
+    "reviewsCount": 745,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      795.71,
+      716.139,
+      79.57
+    ]
+  },
+  {
+    "id": 1785432648,
+    "title": "Prodotto in Offerta 19 - Sconto 89%",
+    "category": "Gaming",
+    "oldPrice": 369.53,
+    "newPrice": 40.65,
+    "discountPct": 89,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/218/600/600",
+    "asin": "B056182485",
+    "rating": 4.7,
+    "reviewsCount": 3404,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      369.53,
+      332.577,
+      40.65
+    ]
+  },
+  {
+    "id": 1785432640,
+    "title": "Prodotto in Offerta 11 - Sconto 88%",
+    "category": "Gaming",
+    "oldPrice": 162.66,
+    "newPrice": 19.52,
+    "discountPct": 88,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/210/600/600",
+    "asin": "B024782545",
+    "rating": 4.1,
+    "reviewsCount": 2597,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      162.66,
+      146.394,
+      19.52
+    ]
+  },
+  {
+    "id": 1785432656,
+    "title": "Prodotto in Offerta 27 - Sconto 87%",
+    "category": "Elettronica",
+    "oldPrice": 654.82,
+    "newPrice": 85.13,
+    "discountPct": 87,
+    "hasCoupon": true,
+    "couponText": "Coupon -5€",
+    "image": "https://picsum.photos/seed/226/600/600",
+    "asin": "B054434217",
+    "rating": 4.1,
+    "reviewsCount": 1923,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      654.82,
+      589.3380000000001,
+      85.13
+    ]
+  },
+  {
+    "id": 1785432655,
+    "title": "Prodotto in Offerta 26 - Sconto 82%",
+    "category": "Elettronica",
+    "oldPrice": 267.62,
+    "newPrice": 48.17,
+    "discountPct": 82,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/225/600/600",
+    "asin": "B040624288",
+    "rating": 4.0,
+    "reviewsCount": 3171,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      267.62,
+      240.858,
+      48.17
+    ]
+  },
+  {
+    "id": 1785432658,
+    "title": "Prodotto in Offerta 29 - Sconto 82%",
+    "category": "Casa",
+    "oldPrice": 478.63,
+    "newPrice": 86.15,
+    "discountPct": 82,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/228/600/600",
+    "asin": "B016690125",
+    "rating": 4.5,
+    "reviewsCount": 3435,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      478.63,
+      430.767,
+      86.15
+    ]
+  },
+  {
+    "id": 1785432639,
+    "title": "Prodotto in Offerta 10 - Sconto 81%",
+    "category": "Sport",
+    "oldPrice": 50.41,
+    "newPrice": 9.58,
+    "discountPct": 81,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/209/600/600",
+    "asin": "B036462872",
+    "rating": 4.9,
+    "reviewsCount": 2904,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      50.41,
+      45.369,
+      9.58
+    ]
+  },
+  {
+    "id": 1785432654,
+    "title": "Prodotto in Offerta 25 - Sconto 80%",
+    "category": "Informatica",
+    "oldPrice": 239.8,
+    "newPrice": 47.96,
+    "discountPct": 80,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/224/600/600",
+    "asin": "B039299644",
+    "rating": 4.1,
+    "reviewsCount": 4023,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      239.8,
+      215.82000000000002,
+      47.96
+    ]
+  },
+  {
+    "id": 1785432651,
+    "title": "Prodotto in Offerta 22 - Sconto 72%",
+    "category": "Sport",
+    "oldPrice": 251.09,
+    "newPrice": 70.31,
+    "discountPct": 72,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/221/600/600",
+    "asin": "B017657095",
+    "rating": 4.2,
+    "reviewsCount": 2295,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      251.09,
+      225.981,
+      70.31
+    ]
+  },
+  {
+    "id": 1785432652,
+    "title": "Prodotto in Offerta 23 - Sconto 64%",
+    "category": "Informatica",
+    "oldPrice": 511.44,
+    "newPrice": 184.12,
+    "discountPct": 64,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/222/600/600",
+    "asin": "B086178240",
+    "rating": 4.3,
+    "reviewsCount": 2335,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      511.44,
+      460.296,
+      184.12
+    ]
+  },
+  {
+    "id": 1785432637,
+    "title": "Prodotto in Offerta 8 - Sconto 62%",
+    "category": "Gaming",
+    "oldPrice": 439.54,
+    "newPrice": 167.03,
+    "discountPct": 62,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/207/600/600",
+    "asin": "B015033739",
+    "rating": 4.9,
+    "reviewsCount": 2962,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      439.54,
+      395.586,
+      167.03
+    ]
+  },
+  {
+    "id": 1785432657,
+    "title": "Prodotto in Offerta 28 - Sconto 62%",
+    "category": "Sport",
+    "oldPrice": 155.32,
+    "newPrice": 59.02,
+    "discountPct": 62,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/227/600/600",
+    "asin": "B084092350",
+    "rating": 4.6,
+    "reviewsCount": 1388,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      155.32,
+      139.788,
+      59.02
+    ]
+  },
+  {
+    "id": 1785432633,
+    "title": "Prodotto in Offerta 4 - Sconto 61%",
+    "category": "Casa",
+    "oldPrice": 469.95,
+    "newPrice": 183.28,
+    "discountPct": 61,
+    "hasCoupon": true,
+    "couponText": "Coupon -44€",
+    "image": "https://picsum.photos/seed/203/600/600",
+    "asin": "B073021613",
+    "rating": 4.2,
+    "reviewsCount": 2523,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      469.95,
+      422.955,
+      183.28
+    ]
+  },
+  {
+    "id": 1785432630,
+    "title": "Prodotto in Offerta 1 - Sconto 58%",
+    "category": "Casa",
+    "oldPrice": 671.66,
+    "newPrice": 282.1,
+    "discountPct": 58,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/200/600/600",
+    "asin": "B066373974",
+    "rating": 4.3,
+    "reviewsCount": 4132,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      671.66,
+      604.494,
+      282.1
+    ]
+  },
+  {
+    "id": 1785432647,
+    "title": "Prodotto in Offerta 18 - Sconto 57%",
+    "category": "Informatica",
+    "oldPrice": 346.51,
+    "newPrice": 149.0,
+    "discountPct": 57,
+    "hasCoupon": true,
+    "couponText": "Coupon -44€",
+    "image": "https://picsum.photos/seed/217/600/600",
+    "asin": "B050691624",
+    "rating": 4.4,
+    "reviewsCount": 3084,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      346.51,
+      311.859,
+      149.0
+    ]
+  },
+  {
+    "id": 1785432632,
+    "title": "Prodotto in Offerta 3 - Sconto 55%",
+    "category": "Casa",
+    "oldPrice": 526.85,
+    "newPrice": 237.08,
+    "discountPct": 55,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/202/600/600",
+    "asin": "B090185470",
+    "rating": 4.6,
+    "reviewsCount": 3353,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      526.85,
+      474.165,
+      237.08
+    ]
+  },
+  {
+    "id": 1785432653,
+    "title": "Prodotto in Offerta 24 - Sconto 52%",
+    "category": "Elettronica",
+    "oldPrice": 85.78,
+    "newPrice": 41.17,
+    "discountPct": 52,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/223/600/600",
+    "asin": "B046105509",
+    "rating": 4.5,
+    "reviewsCount": 3223,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      85.78,
+      77.202,
+      41.17
+    ]
+  },
+  {
+    "id": 1785432649,
+    "title": "Prodotto in Offerta 20 - Sconto 48%",
+    "category": "Sport",
+    "oldPrice": 160.01,
+    "newPrice": 83.21,
+    "discountPct": 48,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/219/600/600",
+    "asin": "B045423911",
+    "rating": 4.4,
+    "reviewsCount": 3080,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      160.01,
+      144.009,
+      83.21
+    ]
+  },
+  {
+    "id": 1785432635,
+    "title": "Prodotto in Offerta 6 - Sconto 45%",
+    "category": "Gaming",
+    "oldPrice": 640.4,
+    "newPrice": 352.22,
+    "discountPct": 45,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/205/600/600",
+    "asin": "B047338217",
+    "rating": 4.5,
+    "reviewsCount": 3189,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      640.4,
+      576.36,
+      352.22
+    ]
+  },
+  {
+    "id": 1785432634,
+    "title": "Prodotto in Offerta 5 - Sconto 43%",
+    "category": "Sport",
+    "oldPrice": 47.73,
+    "newPrice": 27.21,
+    "discountPct": 43,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/204/600/600",
+    "asin": "B073352980",
+    "rating": 5.0,
+    "reviewsCount": 2451,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      47.73,
+      42.957,
+      27.21
+    ]
+  },
+  {
+    "id": 1785432631,
+    "title": "Prodotto in Offerta 2 - Sconto 42%",
+    "category": "Gaming",
+    "oldPrice": 777.23,
+    "newPrice": 450.79,
+    "discountPct": 42,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/201/600/600",
+    "asin": "B084760809",
+    "rating": 5.0,
+    "reviewsCount": 386,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      777.23,
+      699.5070000000001,
+      450.79
+    ]
+  },
+  {
+    "id": 1785432645,
+    "title": "Prodotto in Offerta 16 - Sconto 42%",
+    "category": "Casa",
+    "oldPrice": 286.25,
+    "newPrice": 166.03,
+    "discountPct": 42,
+    "hasCoupon": true,
+    "couponText": "Coupon -45€",
+    "image": "https://picsum.photos/seed/215/600/600",
+    "asin": "B058522581",
+    "rating": 4.3,
+    "reviewsCount": 4869,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      286.25,
+      257.625,
+      166.03
+    ]
+  },
+  {
+    "id": 1785432641,
+    "title": "Prodotto in Offerta 12 - Sconto 40%",
+    "category": "Sport",
+    "oldPrice": 366.25,
+    "newPrice": 219.75,
+    "discountPct": 40,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/211/600/600",
+    "asin": "B071981509",
+    "rating": 4.6,
+    "reviewsCount": 4008,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      366.25,
+      329.625,
+      219.75
+    ]
+  },
+  {
+    "id": 1785432636,
+    "title": "Prodotto in Offerta 7 - Sconto 38%",
+    "category": "Sport",
+    "oldPrice": 441.91,
+    "newPrice": 273.98,
+    "discountPct": 38,
+    "hasCoupon": true,
+    "couponText": "Coupon -14€",
+    "image": "https://picsum.photos/seed/206/600/600",
+    "asin": "B082422413",
+    "rating": 4.4,
+    "reviewsCount": 421,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      441.91,
+      397.71900000000005,
+      273.98
+    ]
+  },
+  {
+    "id": 1785432646,
+    "title": "Prodotto in Offerta 17 - Sconto 35%",
+    "category": "Sport",
+    "oldPrice": 502.37,
+    "newPrice": 326.54,
+    "discountPct": 35,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/216/600/600",
+    "asin": "B033860652",
+    "rating": 4.4,
+    "reviewsCount": 1948,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      502.37,
+      452.13300000000004,
+      326.54
+    ]
+  },
+  {
+    "id": 1785432642,
+    "title": "Prodotto in Offerta 13 - Sconto 34%",
+    "category": "Elettronica",
+    "oldPrice": 185.92,
+    "newPrice": 122.71,
+    "discountPct": 34,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/212/600/600",
+    "asin": "B026270462",
+    "rating": 4.5,
+    "reviewsCount": 539,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      185.92,
+      167.328,
+      122.71
+    ]
+  },
+  {
+    "id": 1785432650,
+    "title": "Prodotto in Offerta 21 - Sconto 26%",
+    "category": "Sport",
+    "oldPrice": 140.73,
+    "newPrice": 104.14,
+    "discountPct": 26,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/220/600/600",
+    "asin": "B061607641",
+    "rating": 4.2,
+    "reviewsCount": 2108,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      140.73,
+      126.657,
+      104.14
+    ]
+  },
+  {
+    "id": 1785432643,
+    "title": "Prodotto in Offerta 14 - Sconto 23%",
+    "category": "Casa",
+    "oldPrice": 658.23,
+    "newPrice": 506.84,
+    "discountPct": 23,
+    "hasCoupon": true,
+    "couponText": "Coupon -33€",
+    "image": "https://picsum.photos/seed/213/600/600",
+    "asin": "B071919626",
+    "rating": 4.5,
+    "reviewsCount": 1743,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      658.23,
+      592.407,
+      506.84
+    ]
+  },
+  {
+    "id": 1785432659,
+    "title": "Prodotto in Offerta 30 - Sconto 23%",
+    "category": "Gaming",
+    "oldPrice": 753.74,
+    "newPrice": 580.38,
+    "discountPct": 23,
+    "hasCoupon": true,
+    "couponText": "Coupon -21€",
+    "image": "https://picsum.photos/seed/229/600/600",
+    "asin": "B042704224",
+    "rating": 4.2,
+    "reviewsCount": 2436,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      753.74,
+      678.366,
+      580.38
+    ]
+  },
+  {
+    "id": 1785432638,
+    "title": "Prodotto in Offerta 9 - Sconto 20%",
+    "category": "Sport",
+    "oldPrice": 649.94,
+    "newPrice": 519.95,
+    "discountPct": 20,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://picsum.photos/seed/208/600/600",
+    "asin": "B023790874",
+    "rating": 4.4,
+    "reviewsCount": 2567,
+    "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
+    "history": [
+      649.94,
+      584.946,
+      519.95
+    ]
+  }
+]
