@@ -3,7 +3,7 @@ name: Update Amazon Deals
 on:
   schedule:
     - cron: '0 * * * *' # Gira ogni ora
-  workflow_dispatch: # Tasto per avviarlo a mano
+  workflow_dispatch: 
 
 jobs:
   build:
