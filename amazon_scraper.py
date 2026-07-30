@@ -1,12 +1,12 @@
-
 import requests
 from bs4 import BeautifulSoup
 import json
 import time
 import random
+import sys
+import re
 
 # --- CONFIGURAZIONE ---
-# Il bot scansionerà le offerte reali filtrando per sconto 20-95%
 TARGET_URLS = [
     "https://www.amazon.it/s?k=offerte+lampo&i=specialty-aps&srs=11400615031&rh=p_8%3A20-95",
     "https://www.amazon.it/s?k=elettronica&i=electronics&rh=p_8%3A20-95",
@@ -14,69 +14,97 @@ TARGET_URLS = [
 ]
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
     "Accept-Language": "it-IT,it;q=0.9",
     "Referer": "https://www.google.it/"
 }
 
-def parse_price(p_str):
-    if not p_str: return 0.0
-    # Pulizia manuale senza libreria RE per massima compatibilità
-    clean = "".join([c for d in p_str.split(",") for c in d if c.isdigit() or c == "."])
+def clean_price_string(price_str):
+    """Trasforma '1.299,00 €' in 1299.00"""
+    if not price_str: return 0.0
+    # Rimuove tutto tranne numeri, virgola e punto
+    price_str = "".join(c for c in price_str if c.isdigit() or c in ",.")
+    
+    # Se c'è sia punto che virgola (es. 1.299,00)
+    if "." in price_str and "," in price_str:
+        price_str = price_str.replace(".", "").replace(",", ".")
+    # Se c'è solo la virgola (es. 12,99)
+    elif "," in price_str:
+        price_str = price_str.replace(",", ".")
+        
     try:
-        return float(clean)
+        return float(price_str)
     except:
         return 0.0
 
 def scrape_page(url):
-    print(f"Scansione: {url[:50]}...")
+    print(f"Scansione: {url[:60]}...")
+    results = []
     try:
         res = requests.get(url, headers=HEADERS, timeout=20)
         if res.status_code != 200: return []
         
         soup = BeautifulSoup(res.content, 'html.parser')
         items = soup.select('div[data-component-type="s-search-result"]')
-        results = []
 
         for item in items:
             try:
-                title = item.select_one('h2 span').text.strip()
                 asin = item.get('data-asin')
-                image = item.select_one('img.s-image').get('src')
+                if not asin: continue
 
-                p_new_el = item.select_one('span.a-price span.a-offscreen')
-                p_old_el = item.select_one('span.a-price.a-text-price span.a-offscreen')
-                
-                new_p = parse_price(p_new_el.text) if p_new_el else 0.0
-                old_p = parse_price(p_old_el.text) if p_old_el else new_p
+                title_el = item.select_one('h2 span')
+                title = title_el.text.strip() if title_el else "Prodotto Amazon"
 
+                img_el = item.select_one('img.s-image')
+                image = img_el.get('src') if img_el else ""
+
+                # Prezzo attuale (Scontato)
+                # Amazon usa classi diverse. Cerchiamo la più comune.
+                price_new_container = item.select_one('span.a-price span.a-offscreen')
+                new_p = clean_price_string(price_new_container.text) if price_new_container else 0.0
+
+                # Prezzo originale (Barrato)
+                price_old_container = item.select_one('span.a-price.a-text-price span.a-offscreen')
+                old_p = clean_price_string(price_old_container.text) if price_old_container else 0.0
+
+                # Se non troviamo il prezzo barrato, a volte è in un'altra classe
+                if old_p == 0:
+                    alt_old = item.select_one('span.a-text-strike')
+                    old_p = clean_price_string(alt_old.text) if alt_old else 0.0
+
+                # Calcolo sconto reale
                 discount = 0
                 if old_p > new_p and old_p > 0:
                     discount = int(((old_p - new_p) / old_p) * 100)
+                
+                # Sanity check: se lo sconto è assurdo (>98%) o negativo, è un errore di lettura
+                if discount > 98 or discount < 0:
+                    discount = 0
+                    old_p = new_p
 
-                # Controllo Coupon Avanzato
-                item_text = item.text.lower()
-                has_coupon = "coupon" in item_text or "risparmia" in item_text or "extra" in item_text
-                coupon_text = "Vedi Coupon" if has_coupon else ""
+                has_coupon = "coupon" in item.text.lower() or "risparmia" in item.text.lower()
 
+                # Filtro richiesto: 20-95% o Coupon
                 if (discount >= 20 and discount <= 97) or has_coupon:
                     results.append({
                         "id": int(time.time()) + random.randint(0, 1000),
                         "title": title,
-                        "oldPrice": old_p,
-                        "newPrice": new_p,
+                        "oldPrice": round(old_p, 2),
+                        "newPrice": round(new_p, 2),
                         "discountPct": discount,
                         "hasCoupon": has_coupon,
-                        "couponText": "Coupon disponibile" if has_coupon else "",
+                        "couponText": "COUPON DISPONIBILE" if has_coupon else "",
                         "image": image,
                         "asin": asin,
                         "category": "Amazon",
-                        "description": "Offerta reale verificata."
+                        "description": f"Sconto reale del {discount}%"
                     })
+                    print(f"OK: {asin} - {new_p}€ (Sconto {discount}%)")
             except:
                 continue
         return results
-    except:
+    except Exception as e:
+        print(f"Errore: {e}")
         return []
 
 if __name__ == "__main__":
@@ -84,16 +112,16 @@ if __name__ == "__main__":
     for url in TARGET_URLS:
         found = scrape_page(url)
         all_deals.extend(found)
-        print(f"Trovate {len(found)} offerte in questa pagina.")
-        time.sleep(random.uniform(3, 6))
+        time.sleep(random.uniform(4, 8))
 
-    # Rimozione duplicati
-    unique = {d['asin']: d for d in all_deals}.values()
-    final = sorted(list(unique), key=lambda x: x['discountPct'], reverse=True)
+    if all_deals:
+        unique = {d['asin']: d for d in all_deals}.values()
+        final = sorted(list(unique), key=lambda x: x['id'], reverse=True)
 
-    if len(final) > 0:
         with open("offerte.json", "w", encoding="utf-8") as f:
             json.dump(final, f, indent=2, ensure_ascii=False)
-        print(f"OPERAZIONE COMPLETATA: {len(final)} offerte reali caricate!")
+        print(f"COMPLETATO: {len(final)} offerte reali salvate!")
     else:
-        print("ERRORE: Amazon ha bloccato lo scraper. Riprova più tardi.")
+        print("ERRORE: Nessuna offerta trovata. Verifica i selettori o blocchi Amazon.")
+        sys.exit(1)
+
