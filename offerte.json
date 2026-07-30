@@ -1,9 +1,9 @@
 [
   {
-    "id": 1785442885,
+    "id": 1785443675,
     "title": "CORSAIR FRAME 4500X RS-R ARGB Case Mid-Tower per PC con Vetro Panoramico – Sistema di Montaggio InfiniRail, Adatto a Due Radiatori da 360 mm, Anti-Sag della GPU, Include 3 Ventole RS120R – Bianco",
-    "oldPrice": 163.85,
-    "newPrice": 65.57,
+    "oldPrice": 16385.0,
+    "newPrice": 6557.0,
     "discountPct": 59,
     "hasCoupon": false,
     "couponText": "",
@@ -13,10 +13,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442445,
+    "id": 1785443660,
     "title": "CORSAIR FRAME 4500X LX-R RGB LINK Case Mid-Tower per PC con Vetro Panoramico – Sistema di Montaggio InfiniRail, Anti-Sag della GPU, Include 3 Ventole LX120R RGB LINK – Bianco",
-    "oldPrice": 204.84,
-    "newPrice": 90.16,
+    "oldPrice": 20484.0,
+    "newPrice": 9016.0,
     "discountPct": 55,
     "hasCoupon": false,
     "couponText": "",
@@ -26,10 +26,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442544,
+    "id": 1785444590,
     "title": "CORSAIR FRAME 4500X RS-R ARGB Case Mid-Tower per PC con Vetro Panoramico – Sistema di Montaggio InfiniRail, Adatto a Due Radiatori da 360 mm, GPU Anti-Sag, Include 3 Ventole RS120R – Nero",
-    "oldPrice": 163.85,
-    "newPrice": 73.76,
+    "oldPrice": 16385.0,
+    "newPrice": 7376.0,
     "discountPct": 54,
     "hasCoupon": false,
     "couponText": "",
@@ -39,10 +39,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442516,
+    "id": 1785443668,
     "title": "Fila",
-    "oldPrice": 51.22,
-    "newPrice": 25.22,
+    "oldPrice": 5122.0,
+    "newPrice": 2522.0,
     "discountPct": 50,
     "hasCoupon": false,
     "couponText": "",
@@ -52,10 +52,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442362,
+    "id": 1785444092,
     "title": "Skechers",
-    "oldPrice": 81.93,
-    "newPrice": 42.61,
+    "oldPrice": 8193.0,
+    "newPrice": 4261.0,
     "discountPct": 47,
     "hasCoupon": false,
     "couponText": "",
@@ -65,10 +65,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442303,
+    "id": 1785444533,
     "title": "NIKE",
-    "oldPrice": 18.84,
-    "newPrice": 10.89,
+    "oldPrice": 1884.0,
+    "newPrice": 1089.0,
     "discountPct": 42,
     "hasCoupon": false,
     "couponText": "",
@@ -78,10 +78,23 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442303,
+    "id": 1785443783,
+    "title": "Tappetino per mouse con simpatico cucciolo di dipinto a olio, base in gomma antiscivolo, bordo bloccato, tappetino da scrivania per computer portatile, ufficio, casa (marrone)",
+    "oldPrice": 1015.0,
+    "newPrice": 584.0,
+    "discountPct": 42,
+    "hasCoupon": false,
+    "couponText": "",
+    "image": "https://m.media-amazon.com/images/I/51qw9Ikv7cL._AC_UL320_.jpg",
+    "asin": "B0H3Z4SG6Y",
+    "category": "Amazon",
+    "description": "Offerta reale verificata."
+  },
+  {
+    "id": 1785443723,
     "title": "Skechers",
-    "oldPrice": 73.73,
-    "newPrice": 44.18,
+    "oldPrice": 7373.0,
+    "newPrice": 4418.0,
     "discountPct": 40,
     "hasCoupon": false,
     "couponText": "",
@@ -91,10 +104,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442234,
+    "id": 1785443872,
     "title": "PUMA",
-    "oldPrice": 59.95,
-    "newPrice": 36.0,
+    "oldPrice": 5995.0,
+    "newPrice": 3600.0,
     "discountPct": 39,
     "hasCoupon": false,
     "couponText": "",
@@ -104,10 +117,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785443021,
+    "id": 1785443766,
     "title": "PUMA",
-    "oldPrice": 53.24,
-    "newPrice": 31.97,
+    "oldPrice": 5324.0,
+    "newPrice": 3197.0,
     "discountPct": 39,
     "hasCoupon": false,
     "couponText": "",
@@ -117,10 +130,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785443041,
+    "id": 1785444154,
     "title": "Skechers",
-    "oldPrice": 57.34,
-    "newPrice": 34.75,
+    "oldPrice": 5734.0,
+    "newPrice": 3475.0,
     "discountPct": 39,
     "hasCoupon": false,
     "couponText": "",
@@ -130,10 +143,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442692,
+    "id": 1785444401,
     "title": "Skechers",
-    "oldPrice": 57.34,
-    "newPrice": 37.48,
+    "oldPrice": 5734.0,
+    "newPrice": 3748.0,
     "discountPct": 34,
     "hasCoupon": false,
     "couponText": "",
@@ -143,10 +156,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442509,
+    "id": 1785443864,
     "title": "Skechers",
-    "oldPrice": 57.34,
-    "newPrice": 37.56,
+    "oldPrice": 5734.0,
+    "newPrice": 3756.0,
     "discountPct": 34,
     "hasCoupon": false,
     "couponText": "",
@@ -156,10 +169,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785443084,
+    "id": 1785444185,
     "title": "60 adesivi divertenti a forma di anatra del fumetto per computer portatile, telefono, scrapbooking, programmatore, diario del computer, regali per colleghi adolescenti",
-    "oldPrice": 7.99,
-    "newPrice": 5.21,
+    "oldPrice": 799.0,
+    "newPrice": 521.0,
     "discountPct": 34,
     "hasCoupon": false,
     "couponText": "",
@@ -169,10 +182,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785443023,
+    "id": 1785444190,
     "title": "Philips TAZ6000 Lettore CD tutto in uno con radio DAB+/ FM, Bluetooth 5.4, USB, Alimentazione batteria/CA, Bassi dinamici, Materiali riciclati e presa per le cuffie da 3,5mm",
-    "oldPrice": 119.99,
-    "newPrice": 81.5,
+    "oldPrice": 11999.0,
+    "newPrice": 8150.0,
     "discountPct": 32,
     "hasCoupon": false,
     "couponText": "",
@@ -182,10 +195,10 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785443077,
+    "id": 1785444362,
     "title": "Fila",
-    "oldPrice": 51.23,
-    "newPrice": 37.7,
+    "oldPrice": 5123.0,
+    "newPrice": 3770.0,
     "discountPct": 26,
     "hasCoupon": false,
     "couponText": "",
@@ -195,28 +208,80 @@
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442438,
+    "id": 1785443882,
     "title": "INIU Cavo USB Type-C, Cavo USB [2m] 3,1A QC 3,0 Tipo C Cavo Type C Rapida | Lega Intrecciato in Nylon, Ricarica ad Alta Velocità, Indicatore LED, per iPhone 17 16 Pro, Samsung S25, Xiaomi iPad ecc.",
-    "oldPrice": 7.37,
-    "newPrice": 5.44,
+    "oldPrice": 737.0,
+    "newPrice": 544.0,
     "discountPct": 26,
-    "hasCoupon": false,
-    "couponText": "",
+    "hasCoupon": true,
+    "couponText": "Coupon disponibile",
     "image": "https://m.media-amazon.com/images/I/71u4I4gKayL._AC_UL320_.jpg",
     "asin": "B09P8KM9Z6",
     "category": "Amazon",
     "description": "Offerta reale verificata."
   },
   {
-    "id": 1785442835,
+    "id": 1785444035,
     "title": "TCP Performance over UMTS-HSDPA Systems",
-    "oldPrice": 130.0,
-    "newPrice": 103.74,
+    "oldPrice": 13000.0,
+    "newPrice": 10374.0,
     "discountPct": 20,
     "hasCoupon": false,
     "couponText": "",
     "image": "https://m.media-amazon.com/images/I/61kUvh3OiEL._AC_UL320_.jpg",
     "asin": "0849368383",
+    "category": "Amazon",
+    "description": "Offerta reale verificata."
+  },
+  {
+    "id": 1785444309,
+    "title": "VIDAL",
+    "oldPrice": 81.0,
+    "newPrice": 81.0,
+    "discountPct": 0,
+    "hasCoupon": true,
+    "couponText": "Coupon disponibile",
+    "image": "https://m.media-amazon.com/images/I/71yQ-ZCKK+L._AC_UL320_.jpg",
+    "asin": "B0CHHTCSJQ",
+    "category": "Amazon",
+    "description": "Offerta reale verificata."
+  },
+  {
+    "id": 1785444601,
+    "title": "INIU Cavo USB Type-C, Cavo USB A a USB C 3,1A Ricarica Rapida [3Pezzi/0,5+2+2m] Lega Intrecciato in Nylon QC 3,0 Cavo Tipo C per iPhone 17 16 15, Samsung S25 24 Ultra, Xiaomi Huawei Pixel OnePlus ECC. | Lega Intrecciato in Nylon, Ricarica ad Alta Velocità, Indicatore LED, per iPhone 17 16 Pro, Samsung S25, Xiaomi iPad ecc.",
+    "oldPrice": 259.0,
+    "newPrice": 778.0,
+    "discountPct": 0,
+    "hasCoupon": true,
+    "couponText": "Coupon disponibile",
+    "image": "https://m.media-amazon.com/images/I/61RX+CNeXjL._AC_UL320_.jpg",
+    "asin": "B08J7PQGD7",
+    "category": "Amazon",
+    "description": "Offerta reale verificata."
+  },
+  {
+    "id": 1785444227,
+    "title": "Vimar 14292.C.25 Plana Alimentatore USB da 25 W per dispositivi elettronici, uscita USB C, tecnologia Power Delivery",
+    "oldPrice": 1551.0,
+    "newPrice": 1551.0,
+    "discountPct": 0,
+    "hasCoupon": true,
+    "couponText": "Coupon disponibile",
+    "image": "https://m.media-amazon.com/images/I/41axWtaVdNL._AC_UL320_.jpg",
+    "asin": "B0D7CY3DJS",
+    "category": "Amazon",
+    "description": "Offerta reale verificata."
+  },
+  {
+    "id": 1785443962,
+    "title": "Trovini elettrici Electric Cordless Riscaldamento a temperatura costante Bottiglia caldaia portatile per viaggi all'aperto 400 ml",
+    "oldPrice": 8033.0,
+    "newPrice": 8033.0,
+    "discountPct": 0,
+    "hasCoupon": true,
+    "couponText": "Coupon disponibile",
+    "image": "https://m.media-amazon.com/images/I/51xbmeY5NQL._AC_UL320_.jpg",
+    "asin": "B0FGVS9DFC",
     "category": "Amazon",
     "description": "Offerta reale verificata."
   }
