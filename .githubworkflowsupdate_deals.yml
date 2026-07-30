@@ -12,12 +12,12 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Versione stabile per Node 24
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Versione stabile per Node 24
         with:
-          python-version: '3.9'
+          python-version: '3.12' # Usiamo una versione di Python più recente
 
       - name: Install dependencies
         run: |
