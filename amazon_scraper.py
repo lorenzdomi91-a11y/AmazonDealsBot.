@@ -3,53 +3,93 @@ from bs4 import BeautifulSoup
 import json
 import time
 import random
-import sys
 
-# CONFIGURAZIONE
-AMAZON_URL = "https://www.amazon.it/gp/goldbox" 
+# --- CONFIGURAZIONE ---
+# Il bot scansionerà le offerte reali filtrando per sconto 20-95%
+TARGET_URLS = [
+    "https://www.amazon.it/s?k=offerte+lampo&i=specialty-aps&srs=11400615031&rh=p_8%3A20-95",
+    "https://www.amazon.it/s?k=elettronica&i=electronics&rh=p_8%3A20-95",
+    "https://www.amazon.it/s?k=informatica&i=computers&rh=p_8%3A20-95"
+]
+
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
-    "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "it-IT,it;q=0.9",
+    "Referer": "https://www.google.it/"
 }
 
-def scrape_amazon():
-    print(f"[{time.strftime('%H:%M:%S')}] Inizio scansione Amazon.it...")
-    deals = []
-    sample_categories = ["Elettronica", "Informatica", "Casa", "Sport", "Gaming"]
-    
-    for i in range(30):
-        old_p = round(random.uniform(40, 800), 2)
-        discount = random.randint(20, 90)
-        new_p = round(old_p * (1 - discount/100), 2)
-        has_coupon = random.choice([True, False, False])
+def parse_price(p_str):
+    if not p_str: return 0.0
+    # Pulizia manuale senza libreria RE per massima compatibilità
+    clean = "".join([c for d in p_str.split(",") for c in d if c.isdigit() or c == "."])
+    try:
+        return float(clean)
+    except:
+        return 0.0
+
+def scrape_page(url):
+    print(f"Scansione: {url[:50]}...")
+    try:
+        res = requests.get(url, headers=HEADERS, timeout=20)
+        if res.status_code != 200: return []
         
-        deal = {
-            "id": int(time.time()) + i,
-            "title": f"Prodotto in Offerta {i+1} - Sconto {discount}%",
-            "category": random.choice(sample_categories),
-            "oldPrice": old_p,
-            "newPrice": new_p,
-            "discountPct": discount,
-            "hasCoupon": has_coupon,
-            "couponText": f"Coupon -{random.randint(5, 50)}€" if has_coupon else "",
-            "image": f"https://picsum.photos/seed/{i+200}/600/600",
-            "asin": f"B0{random.randint(10000000, 99999999)}",
-            "rating": round(random.uniform(4.0, 5.0), 1),
-            "reviewsCount": random.randint(100, 5000),
-            "description": "Offerta verificata dal sistema automatico OfferteAmazon.",
-            "history": [old_p, old_p * 0.9, new_p]
-        }
-        deals.append(deal)
-    return deals
+        soup = BeautifulSoup(res.content, 'html.parser')
+        items = soup.select('div[data-component-type="s-search-result"]')
+        results = []
+
+        for item in items:
+            try:
+                title = item.select_one('h2 span').text.strip()
+                asin = item.get('data-asin')
+                image = item.select_one('img.s-image').get('src')
+
+                p_new_el = item.select_one('span.a-price span.a-offscreen')
+                p_old_el = item.select_one('span.a-price.a-text-price span.a-offscreen')
+                
+                new_p = parse_price(p_new_el.text) if p_new_el else 0.0
+                old_p = parse_price(p_old_el.text) if p_old_el else new_p
+
+                discount = 0
+                if old_p > new_p and old_p > 0:
+                    discount = int(((old_p - new_p) / old_p) * 100)
+
+                has_coupon = "coupon" in item.text.lower()
+
+                if (discount >= 20 and discount <= 97) or has_coupon:
+                    results.append({
+                        "id": int(time.time()) + random.randint(0, 1000),
+                        "title": title,
+                        "oldPrice": old_p,
+                        "newPrice": new_p,
+                        "discountPct": discount,
+                        "hasCoupon": has_coupon,
+                        "couponText": "Coupon disponibile" if has_coupon else "",
+                        "image": image,
+                        "asin": asin,
+                        "category": "Amazon",
+                        "description": "Offerta reale verificata."
+                    })
+            except:
+                continue
+        return results
+    except:
+        return []
 
 if __name__ == "__main__":
-    try:
-        found_deals = scrape_amazon()
-        found_deals.sort(key=lambda x: x['discountPct'], reverse=True)
-        # CORREZIONE QUI: ensure_ascii con underscore
+    all_deals = []
+    for url in TARGET_URLS:
+        found = scrape_page(url)
+        all_deals.extend(found)
+        print(f"Trovate {len(found)} offerte in questa pagina.")
+        time.sleep(random.uniform(3, 6))
+
+    # Rimozione duplicati
+    unique = {d['asin']: d for d in all_deals}.values()
+    final = sorted(list(unique), key=lambda x: x['discountPct'], reverse=True)
+
+    if len(final) > 0:
         with open("offerte.json", "w", encoding="utf-8") as f:
-            json.dump(found_deals, f, indent=2, ensure_ascii=False)
-        print(f"Successo! {len(found_deals)} offerte salvate.")
-    except Exception as e:
-        print(f"Errore: {e}")
-        sys.exit(1)
+            json.dump(final, f, indent=2, ensure_ascii=False)
+        print(f"OPERAZIONE COMPLETATA: {len(final)} offerte reali caricate!")
+    else:
+        print("ERRORE: Amazon ha bloccato lo scraper. Riprova più tardi.")
