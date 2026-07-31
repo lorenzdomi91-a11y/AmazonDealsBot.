@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1785509620,
+    "title": "VIDAL",
+    "oldPrice": 1.215,
+    "newPrice": 0.81,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71yQ-ZCKK+L._AC_UL320_.jpg",
+    "asin": "B0CHHTCSJQ",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509541,
+    "title": "Skechers",
+    "oldPrice": 51.63,
+    "newPrice": 34.42,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71n-iqnwLML._AC_UL320_.jpg",
+    "asin": "B01M0OV1EV",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509587,
+    "title": "PUMA",
+    "oldPrice": 22.125,
+    "newPrice": 14.75,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/81VFg-bIPoL._AC_UL320_.jpg",
+    "asin": "B0BWK54R3L",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509566,
+    "title": "FM London",
+    "oldPrice": 35.025000000000006,
+    "newPrice": 23.35,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/613F9LlUpUL._AC_UL320_.jpg",
+    "asin": "B0D37M12J2",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509540,
+    "title": "Tenderly",
+    "oldPrice": 44.19,
+    "newPrice": 29.46,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71pddSo2p5L._AC_UL320_.jpg",
+    "asin": "B09J1CZ576",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509629,
+    "title": "Scottex",
+    "oldPrice": 47.94,
+    "newPrice": 31.96,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/61wbGVl+ZML._AC_UL320_.jpg",
+    "asin": "B091DQNF4J",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509539,
+    "title": "Saucony",
+    "oldPrice": 63.915,
+    "newPrice": 42.61,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71GFsuZsv-L._AC_UL320_.jpg",
+    "asin": "B07416XDTL",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509592,
+    "title": "PUMA",
+    "oldPrice": 46.71,
+    "newPrice": 31.14,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/51nnHEG330L._AC_UL320_.jpg",
+    "asin": "B077MM177V",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509630,
+    "title": "Nicky",
+    "oldPrice": 2.94,
+    "newPrice": 1.96,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/61sK4xRPkRL._AC_UL320_.jpg",
+    "asin": "B00DRDXN38",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509602,
+    "title": "Colgate",
+    "oldPrice": 13.905,
+    "newPrice": 9.27,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/81fuPRM85KL._AC_UL320_.jpg",
+    "asin": "B0BNPLSDWN",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509589,
+    "title": "PASTA DEL CAPITANO 1905",
+    "oldPrice": 2.085,
+    "newPrice": 1.39,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71GOgNBkk3L._AC_UL320_.jpg",
+    "asin": "B09GGGW7JH",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509591,
+    "title": "Regina",
+    "oldPrice": 5.415,
+    "newPrice": 3.61,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/61wtLQw802L._AC_UL320_.jpg",
+    "asin": "B00J0JLF60",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509573,
+    "title": "Tenderly",
+    "oldPrice": 7.1850000000000005,
+    "newPrice": 4.79,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/61okFxete3L._AC_UL320_.jpg",
+    "asin": "B07KTSGYSR",
+    "category": "Offerte Vere"
+  },
+  {
+    "id": 1785509571,
+    "title": "Swiffer",
+    "oldPrice": 36.87,
+    "newPrice": 24.58,
+    "discountPct": 33,
+    "hasCoupon": false,
+    "image": "https://m.media-amazon.com/images/I/71TmABFb5eL._AC_UL320_.jpg",
+    "asin": "B0DWNFPTB6",
+    "category": "Offerte Vere"
+  }
+]
