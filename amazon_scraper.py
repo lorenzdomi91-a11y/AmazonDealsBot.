@@ -6,7 +6,7 @@ import random
 import sys
 import re
 
-# --- CONFIGURAZIONE ---
+# CONFIGURAZIONE
 TARGET_URLS = [
     "https://www.amazon.it/s?k=offerte+lampo&rh=p_8%3A20-95",
     "https://www.amazon.it/s?k=informatica&rh=p_8%3A20-95",
@@ -15,8 +15,7 @@ TARGET_URLS = [
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-    "Accept-Language": "it-IT,it;q=0.9",
-    "Referer": "https://www.google.it/"
+    "Accept-Language": "it-IT,it;q=0.9"
 }
 
 def clean_price(p_str):
@@ -29,9 +28,9 @@ def clean_price(p_str):
         return 0.0
 
 def scrape_page(url):
-    print(f"Scansione: {url[:50]}...")
+    print(f"Scansione: {url[:50]}")
     try:
-        res = requests.get(url, headers=HEADERS, timeout=20)
+        res = requests.get(url, headers=HEADERS, timeout=25)
         if res.status_code != 200: return []
         soup = BeautifulSoup(res.content, 'html.parser')
         items = soup.select('div[data-component-type="s-search-result"]')
@@ -62,7 +61,7 @@ if __name__ == "__main__":
     all_deals = []
     for url in TARGET_URLS:
         all_deals.extend(scrape_page(url))
-        time.sleep(random.uniform(3, 7))
+        time.sleep(random.uniform(5, 10))
     if all_deals:
         unique = {d['asin']: d for d in all_deals}.values()
         final = sorted(list(unique), key=lambda x: x['discountPct'], reverse=True)
@@ -70,5 +69,5 @@ if __name__ == "__main__":
             json.dump(final, f, indent=2, ensure_ascii=False)
         print(f"OK: {len(final)} offerte salvate!")
     else:
-        print("Amazon ha bloccato lo scraper. Riprova più tardi.")
+        print("Nessuna offerta trovata.")
         sys.exit(1)
