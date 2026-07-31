@@ -2,26 +2,24 @@ name: Update Amazon Deals
 
 on:
   schedule:
-    - cron: '0 * * * *' # Gira ogni ora
-  workflow_dispatch: 
+    - cron: '0 * * * *' # Gira ogni ora esatta
+  workflow_dispatch: # Permette di avviarlo manualmente per test
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 # Aggiornato a v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # Aggiornato a v5
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4
+          pip install -r requirements.txt
 
       - name: Run scraper
         run: python amazon_scraper.py
