@@ -1,13 +1,9 @@
-
-# Opzione 1: Scraping stealth (GRATIS - ma richiede manutenzione)
 undetected-chromedriver==3.5.4
 selenium==4.15.2
 beautifulsoup4==4.12.2
 lxml==4.9.3
 requests==2.31.0
 flask==3.0.0
-python-dotenv==1.0.0
-
-# Opzione 2: API a pagamento (CONSIGLIATA - zero manutenzione)
-# requests==2.31.0
-# flask==3.0.0
+flask-cors==4.0.0
+fake-useragent==1.4.0
+colorama==0.4.6
