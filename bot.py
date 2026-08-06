@@ -1,3 +1,68 @@
+import os
+import sys
+import time
+import random
+import json
+import subprocess
+from datetime import datetime
+
+# ===== VERIFICA CHE CHROME SIA INSTALLATO =====
+def verifica_chrome():
+    try:
+        result = subprocess.run(['google-chrome', '--version'], capture_output=True, text=True)
+        if result.returncode == 0:
+            print(f"✅ Chrome trovato: {result.stdout.strip()}")
+            return True
+    except:
+        pass
+    
+    try:
+        result = subprocess.run(['chromium-browser', '--version'], capture_output=True, text=True)
+        if result.returncode == 0:
+            print(f"✅ Chromium trovato: {result.stdout.strip()}")
+            return True
+    except:
+        pass
+    
+    print("❌ Chrome/Chromium NON TROVATO!")
+    print("📥 Installa Chrome con: sudo apt install google-chrome-stable")
+    print("   Oppure esegui: ./install.sh")
+    return False
+
+# ===== VERIFICA CHE LE LIBRERIE SIANO INSTALLATE =====
+def verifica_librerie():
+    try:
+        import undetected_chromedriver
+        import selenium
+        import bs4
+        import flask
+        print("✅ Tutte le librerie sono installate")
+        return True
+    except ImportError as e:
+        print(f"❌ Libreria mancante: {e}")
+        print("📥 Installa con: pip install -r requirements.txt")
+        return False
+
+# ===== MAIN CON VERIFICHE =====
+if __name__ == "__main__":
+    print("=" * 60)
+    print("🛡️ AMAZON OFFERTE BOT - VERIFICA SISTEMA")
+    print("=" * 60)
+    
+    if not verifica_chrome():
+        sys.exit(1)
+    
+    if not verifica_librerie():
+        sys.exit(1)
+    
+    print("✅ Sistema pronto!")
+    print("=" * 60)
+    
+    # Avvia il bot vero e proprio
+    from bot import AmazonStealthBot
+    bot = AmazonStealthBot()
+    bot.esegui_scansione()
+    
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
