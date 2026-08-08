@@ -21,6 +21,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add offerte.json
-          git commit -m "Update" || exit 0
-          git push
+          if [ -f offerte.json ]; then
+            git add offerte.json
+            git commit -m "Update deals [$(date)]" || echo "Nessuna modifica"
+            git push
+          else
+            echo "File non trovato, salto il push."
+          fi
