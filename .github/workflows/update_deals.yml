@@ -22,5 +22,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add offerte.json
-          git commit -m "Update deals" || exit 0
+          git commit -m "Update" || exit 0
           git push
