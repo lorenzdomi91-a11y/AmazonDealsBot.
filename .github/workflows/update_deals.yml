@@ -1,35 +1,26 @@
 name: Update Amazon Deals
-
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *' # Gira ogni ora esatta
-  workflow_dispatch: # Permette di avviarlo manualmente per test
-
+    - cron: '0 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Run scraper
+          python-version: '3.12'
+      - name: Install
+        run: pip install requests beautifulsoup4
+      - name: Run
         run: python amazon_scraper.py
-        env:
-          PYTHONUNBUFFERED: 1
-
-      - name: Commit and push changes
+      - name: Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add offerte.json
-          git commit -m "Update deals [$(date)]" || echo "Nessuna nuova offerta"
+          git commit -m "Update deals [$(date)]" || exit 0
           git push
