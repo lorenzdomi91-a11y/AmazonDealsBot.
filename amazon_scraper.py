@@ -28,9 +28,7 @@ def scrape_telegram():
         print(f"Scansione: {channel}...")
         try:
             res = requests.get(url, timeout=20)
-            if res.status_code != 200: 
-                print(f"Canale {channel} saltato (Status {res.status_code})")
-                continue
+            if res.status_code != 200: continue
             
             soup = BeautifulSoup(res.content, 'html.parser')
             messages = soup.select('div.tgme_widget_message')
@@ -43,7 +41,12 @@ def scrape_telegram():
                     text = text_el.get_text()
                     
                     links = msg.select('a')
-                    amazon_url = next((l.get('href') for l in links if "amazon.it" in l.get('href', '') or "amzn.to" in l.get('href', '')), "")
+                    amazon_url = ""
+                    for link in links:
+                        href = link.get('href', '')
+                        if "amazon.it" in href or "amzn.to" in href:
+                            amazon_url = href
+                            break
                     if not amazon_url: continue
                     
                     img_el = msg.select_one('a.tgme_widget_message_photo_wrap')
@@ -54,7 +57,11 @@ def scrape_telegram():
                     if not img_url: continue
 
                     price_match = re.search(r"(\d+([\.,]\d+)?)\s*€", text)
-                    new_p = float(price_match.group(1).replace(',', '.')) if price_match else 0.0
+                    new_p = 0.0
+                    if price_match:
+                        nums = [g for g in price_match.groups() if g]
+                        new_p = float(nums[0].replace(',', '.')) if nums else 0.0
+                    
                     if new_p < 1.0: continue
 
                     all_deals.append({
@@ -67,23 +74,16 @@ def scrape_telegram():
                         "couponText": "COUPON DISPONIBILE",
                         "image": img_url,
                         "url": amazon_url,
-                        "asin": amazon_url.split('/')[-1].split('?')[0] or str(random.randint(1000,9999)),
+                        "asin": amazon_url.split('/')[-1].split('?')[0] or "B000000000",
                         "category": channel.capitalize()
                     })
                     chan_count += 1
                 except: continue
-            print(f"Trovate {chan_count} offerte in {channel}")
+            print(f"Trovate {chan_count} offerte.")
         except: continue
     
     if all_deals:
         unique = {d['url']: d for d in all_deals}.values()
         final = sorted(list(unique), key=lambda x: x['id'], reverse=True)
-        
         with open("offerte.json", "w", encoding="utf-8") as f:
             json.dump(final, f, indent=2, ensure_ascii=False)
-        print(f"OPERAZIONE COMPLETATA: {len(final)} offerte totali salvate!")
-    else:
-        print("Errore critico: Nessun dato trovato in nessun canale.")
-
-if __name__ == "__main__":
-    scrape_telegram()
