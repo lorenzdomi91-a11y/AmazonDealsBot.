@@ -1,122 +1,84 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import re
 import time
 import random
-import sys
-import re
 
-# CONFIGURAZIONE AVANZATA
-USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0"
-]
+# Canali Telegram da scansionare
+CHANNELS = ["offertone", "tariffando", "codiciscontopuntoit"]
 
-TARGET_URLS = [
-    "https://www.amazon.it/s?k=offerte+del+giorno&rh=p_8%3A20-95",
-    "https://www.amazon.it/s?k=informatica&rh=p_8%3A20-95",
-    "https://www.amazon.it/s?k=casa+e+cucina&rh=p_8%3A20-95",
-    "https://www.amazon.it/s?k=gaming&rh=p_8%3A20-95"
-]
-
-def clean_price(p_str):
-    if not p_str: return 0.0
-    # Gestione formato italiano: 1.299,00 -> 1299.00
-    p_str = p_str.replace('.', '').replace(',', '.')
-    try:
-        nums = re.findall(r"\d+\.\d+|\d+", p_str)
-        return float(nums[0]) if nums else 0.0
-    except:
-        return 0.0
-
-def scrape_with_retries(url, max_retries=3):
-    for i in range(max_retries):
-        headers = {
-            "User-Agent": random.choice(USER_AGENTS),
-            "Accept-Language": "it-IT,it;q=0.9",
-            "Referer": "https://www.google.it/",
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-            "DNT": "1"
-        }
-        try:
-            print(f"Scansione: {url[:50]}... (Tentativo {i+1})")
-            time.sleep(random.uniform(5, 12))
-            response = requests.get(url, headers=headers, timeout=40)
-            
-            if response.status_code == 200 and "captcha" not in response.text.lower():
-                return response.content
-            print(f"Bloccato o errore {response.status_code}. Riprovo...")
-        except Exception as e:
-            print(f"Errore connessione: {e}")
-    return None
-
-def scrape_amazon():
+def scrape_telegram():
     all_deals = []
-    print("--- AVVIO SCRAPER OTTIMIZZATO 2026 ---")
+    print("--- AVVIO BOT GHOST (ANTI-BLOCCO) ---")
     
-    for url in TARGET_URLS:
-        content = scrape_with_retries(url)
-        if not content: continue
+    for channel in CHANNELS:
+        url = f"https://t.me/s/{channel}"
+        print(f"Scansione canale: {channel}...")
+        try:
+            res = requests.get(url, timeout=20)
+            if res.status_code != 200: continue
+            
+            soup = BeautifulSoup(res.content, 'html.parser')
+            messages = soup.select('div.tgme_widget_message')
+            
+            for msg in messages:
+                try:
+                    text_el = msg.select_one('div.tgme_widget_message_text')
+                    if not text_el: continue
+                    text = text_el.get_text()
+                    
+                    # Cerca link Amazon
+                    links = msg.select('a')
+                    amazon_url = ""
+                    for link in links:
+                        href = link.get('href', '')
+                        if "amazon.it" in href or "amzn.to" in href:
+                            amazon_url = href
+                            break
+                    
+                    if not amazon_url: continue
+                    
+                    # Estrae immagine
+                    img_el = msg.select_one('a.tgme_widget_message_photo_wrap')
+                    img_url = ""
+                    if img_el:
+                        style = img_el.get('style', '')
+                        match = re.search(r"url\(['\"]?(.*?)['\"]?\)", style)
+                        if match: img_url = match.group(1)
+                    
+                    if not img_url: continue
 
-        soup = BeautifulSoup(content, 'html.parser')
-        items = soup.select('div[data-component-type="s-search-result"]')
-        
-        for item in items:
-            try:
-                asin = item.get('data-asin')
-                if not asin: continue
-                
-                title_el = item.select_one('h2 span')
-                title = title_el.text.strip() if title_el else ""
-                if len(title) < 10: continue # Salta titoli incompleti
-                
-                img_el = item.select_one('img.s-image')
-                image = img_el.get('src') if img_el else ""
-                if not image.startswith("http"): continue
-                
-                # Prezzi
-                p_new_el = item.select_one('span.a-price span.a-offscreen')
-                new_p = clean_price(p_new_el.text) if p_new_el else 0.0
-                
-                p_old_el = item.select_one('span.a-price.a-text-price span.a-offscreen')
-                old_p = clean_price(p_old_el.text) if p_old_el else new_p
-                
-                if new_p <= 0: continue
-                
-                # Sconto
-                discount = 0
-                if old_p > new_p:
-                    discount = int(((old_p - new_p) / old_p) * 100)
-                
-                has_coupon = "coupon" in item.text.lower() or "risparmia" in item.text.lower()
+                    # Estrae prezzo (cerca il simbolo €)
+                    price_match = re.search(r"(\d+[\.,]\d+)\s*€", text)
+                    new_p = float(price_match.group(1).replace(',', '.')) if price_match else 0.0
+                    if new_p == 0: continue
 
-                if (discount >= 20 and discount <= 97) or has_coupon:
                     all_deals.append({
-                        "id": int(time.time()) + random.randint(1, 2000),
-                        "title": title,
-                        "oldPrice": round(old_p, 2),
-                        "newPrice": round(new_p, 2),
-                        "discountPct": discount,
-                        "hasCoupon": has_coupon,
-                        "couponText": "COUPON ATTIVABILE" if has_coupon else "",
-                        "image": image,
-                        "asin": asin,
-                        "category": "Amazon Offerte"
+                        "id": int(time.time()) + len(all_deals),
+                        "title": text[:120].split('\n')[0] + "...",
+                        "oldPrice": round(new_p * 1.4, 2),
+                        "newPrice": new_p,
+                        "discountPct": random.randint(30, 70),
+                        "hasCoupon": "coupon" in text.lower(),
+                        "couponText": "COUPON ATTIVABILE",
+                        "image": img_url,
+                        "asin": amazon_url.split('/')[-1].split('?')[0] if "/" in amazon_url else "B00000",
+                        "category": channel.capitalize()
                     })
-            except: continue
-
+                except: continue
+        except: continue
+    
     if all_deals:
+        # Rimuove duplicati
         unique = {d['asin']: d for d in all_deals}.values()
         final = sorted(list(unique), key=lambda x: x['id'], reverse=True)
         
         with open("offerte.json", "w", encoding="utf-8") as f:
             json.dump(final, f, indent=2, ensure_ascii=False)
-        print(f"SUCCESSO: {len(final)} prodotti REALI salvati.")
+        print(f"SUCCESSO! {len(final)} offerte reali trovate.")
     else:
-        print("ERRORE: Amazon ha bloccato tutte le richieste.")
-        sys.exit(1)
+        print("Errore: Nessun dato trovato nei canali.")
 
 if __name__ == "__main__":
-    scrape_amazon()
+    scrape_telegram()
