@@ -1,26 +1,35 @@
-name: Update Amazon Deals
+name: Update Amazon Deals (Playwright Pro)
+
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 * * * *' # Ogni ora
+  workflow_dispatch: 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install
-        run: pip install requests beautifulsoup4
-      - name: Run
+
+      - name: Install Dependencies
+        run: |
+          pip install playwright beautifulsoup4
+          playwright install --with-deps chromium
+
+      - name: Run Professional Scraper
         run: python amazon_scraper.py
-      - name: Push
+
+      - name: Commit and Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add offerte.json || echo "No file"
-          git commit -m "Update" || exit 0
-          git push
+          git add offerte.json
+          git commit -m "Aggiornamento offerte Playwright [$(date)]" || echo "Nessuna modifica"
