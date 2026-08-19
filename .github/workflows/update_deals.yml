@@ -1,42 +1,28 @@
-name: Update Amazon Deals (Playwright Fast)
-
+name: Update Amazon Deals
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 * * * *'
-  workflow_dispatch: 
-
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Cache Playwright Browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-
-      - name: Install Dependencies
+      - name: Install
         run: |
           pip install playwright beautifulsoup4
-          playwright install --with-deps chromium
-
-      - name: Run Scraper
+          playwright install chromium
+      - name: Run
         run: python amazon_scraper.py
-
-      - name: Commit and Push
+      - name: Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add offerte.json
-          git commit -m "Update deals [$(date)]" || echo "No changes"
+          git add offerte.json || echo "No changes"
+          git commit -m "Update" || exit 0
           git push
